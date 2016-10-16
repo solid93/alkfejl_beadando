@@ -21,3 +21,7 @@ feladatokat, hogy később távolról bármikor elérhessék őket.
 *	**Könnyű áttekinthetőség:** Szín szerinti csoportosítás: fontos és kevésbé fontos feladatok, illetve teljesített feladatok megkülönböztetésére
 *	**Használhatóság:** Ésszerű elrendezés, egyszerű használhatóság, "nagymama proof" design
 *	**Megbízhatóság:** Jelszóval levédett, regisztráció alapú program, felhasználók nem láthatják más felhasználók todo-it, kivéve ha meg van osztva vele
+
+__Használati esetek:__
+
+![Használati esetek](docs/images/uml.jpg)

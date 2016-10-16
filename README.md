@@ -24,4 +24,4 @@ feladatokat, hogy később távolról bármikor elérhessék őket.
 
 __Használati esetek:__
 
-![Használati esetek](docs/images/uml.jpg)
+![](docs/images/uml.png)

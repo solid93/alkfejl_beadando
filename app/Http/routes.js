@@ -21,6 +21,10 @@ Route.on('/').render('login')
 
 Route.get('/home', 'HomeController.index').middleware('auth')
 
+Route.get('/asd', 'CardController.index')
+Route.post('asd', 'CardController.doCreate')
+
+
 Route.get('/login', 'AuthController.index')
 Route.post('/login', 'AuthController.login')
 

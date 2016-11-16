@@ -1,0 +1,33 @@
+{% extends 'master' %}
+
+{% block content %}
+
+    <div class="text-xs-center">
+
+        <h1>Családi To-Do</h1>
+
+        <div class="container lg-margin-top">
+            {% if currentUser %}
+                <p>
+                    Belépve mint {{ currentUser.username }}.
+                </p>
+
+                <a href="/logout" class="btn btn-lg btn-primary">Kijelentkezés</a>
+
+            {% else %}
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <a href="/register" class="btn btn-lg btn-primary float-xs-right">Regisztráció</a>
+                    </div>
+
+                    <div class="col-md-6">
+                        <a href="/login" class="btn btn-lg btn-primary float-xs-left">Bejelentkezés</a>
+                    </div>
+
+                </div>
+            {% endif %}
+        </div>
+
+    </div>
+{% endblock %}

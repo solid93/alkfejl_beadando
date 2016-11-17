@@ -22,7 +22,7 @@ Route.on('/').render('login')
 Route.get('/home', 'HomeController.index').middleware('auth')
 
 Route.get('/createCard', 'CardController.index').middleware('auth')
-Route.post('createCard', 'CardController.doCreate').middleware('auth')
+Route.post('createCard', 'CardController.create').middleware('auth')
 
 
 Route.get('/login', 'AuthController.index')
@@ -31,4 +31,4 @@ Route.post('/login', 'AuthController.login')
 Route.get('/logout', 'AuthController.logout')
 
 Route.get('/register', 'RegisterController.index')
-Route.post('register', 'RegisterController.doRegister')
+Route.post('register', 'RegisterController.register')

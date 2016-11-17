@@ -2,7 +2,7 @@
 
 {% block content %}
 
-   {% include 'components.navbar' %}
+    {% include 'components.navbar' %}
 
     <div class="container lg-margin-top">
         <div>
@@ -10,7 +10,17 @@
             <a class="btn btn-default" href="/createCard" role="button">Új tennivaló</a>
         </div>
 
-        {% include 'components.todoCard' %}
+        {% if cards[0] %}
+
+            {% for card in cards %}
+                {% include 'components.todoCard' %}
+            {% endfor %}
+
+        {% else %}
+        <div>Jelenleg nincs semmi teendőd!</div>
+
+        {% endif %}
+
     </div>
 
 {% endblock %}

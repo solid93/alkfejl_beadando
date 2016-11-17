@@ -6,7 +6,7 @@ class RegisterController {
         yield response.sendView('register')
     }
 
-    * doRegister(request, response) {
+    * register(request, response) {
         const user = new User()
         user.username = request.input('name')
         user.email = request.input('email')

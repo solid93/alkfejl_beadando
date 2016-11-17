@@ -9,8 +9,7 @@ class CardController {
         const card = new Card()
         card.title = request.input('title')
         card.body = request.input('body')
-        card.done = false
-        card.done_at = '2010-05-12'
+        card.done = 0
 
         yield card.save()
 
@@ -22,6 +21,16 @@ class CardController {
         post.body = 'Adding some new content'
 
         yield post.save() // SQL Update
+
+    }
+
+    * done(request, response) {
+        const card = yield Card.findBy('id', request.input('id'))
+        card.done = true
+
+        yield card.save() // SQL Update
+
+        yield response.route('home')
 
     }
 

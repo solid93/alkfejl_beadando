@@ -24,6 +24,9 @@ Route.get('/home', 'HomeController.index').middleware('auth')
 Route.get('/createCard', 'CardController.index').middleware('auth')
 Route.post('createCard', 'CardController.create').middleware('auth')
 
+Route.get('/todo-done', 'CardController.index')
+Route.post('todo-done', 'CardController.done')
+
 
 Route.get('/login', 'AuthController.index')
 Route.post('/login', 'AuthController.login')

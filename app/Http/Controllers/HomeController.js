@@ -4,8 +4,7 @@ const Card = use('App/Model/Card')
 
 class HomeController {
     * index(request, response) {
-        console.log("ashudaohshdu")
-        const cards = yield this.Card.all()
+        const cards = yield Card.query().where('done', 0).orderBy('id', 'desc').fetch()
 
         yield response.sendView('home', {cards: cards.toJSON()})
     }

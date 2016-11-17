@@ -11,13 +11,12 @@
         </div>
 
         {% if cards[0] %}
-
             {% for card in cards %}
                 {% include 'components.todoCard' %}
             {% endfor %}
 
         {% else %}
-        <div>Jelenleg nincs semmi teendőd!</div>
+            <div>Jelenleg nincs semmi teendőd!</div>
 
         {% endif %}
 

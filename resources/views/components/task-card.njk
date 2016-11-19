@@ -1,16 +1,16 @@
 <div class="s">
-    <div class="todo-card">
-        <div class="card-content">
-            <h1>{{ card.title }}</h1>
-            <p class="lead"> {{ card.body }}</p>
+    <div class="task-card">
+        <div class="task-content">
+            <h1>{{ task.title }}</h1>
+            <p class="lead"> {{ task.body }}</p>
             {#<a class="btn btn-lg btn-success" href="#" role="button">Elvégzés</a>#}
             <p>Beosztottak:</p>
 
 
-            <form class="form-horizontal" role="form" method="POST" action="/todo-done">
+            <form class="form-horizontal" role="form" method="POST" action="/complete-task">
                 {{ csrfField }}
 
-                {{ form.hidden('id', card.id ) }}
+                {{ form.hidden('id', task.id ) }}
 
                 <div class="form-group">
                     <div class="col-md-6 col-md-offset-4">

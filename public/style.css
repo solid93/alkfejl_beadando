@@ -6,7 +6,7 @@
     width: 100%;
 }
 
-.todo-card {
+.task-card {
     width: 100%;
     background: lightgrey;
     display: flex;

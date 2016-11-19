@@ -8,8 +8,8 @@ class User extends Lucid {
         return this.hasMany('App/Model/Token')
     }
 
-    // cards () {
-    //     return this.belongsToMany('App/Model/Card')
+    // tasks () {
+    //     return this.belongsToMany('App/Model/Task')
     // }
 
 }

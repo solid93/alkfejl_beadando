@@ -2,7 +2,7 @@
 
 const Lucid = use('Lucid')
 
-class Card extends Lucid {
+class Task extends Lucid {
 
     // users() {
     //     return this.belongsToMany('App/Model/User')
@@ -10,4 +10,4 @@ class Card extends Lucid {
 
 }
 
-module.exports = Card
+module.exports = Task

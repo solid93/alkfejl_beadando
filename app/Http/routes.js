@@ -17,15 +17,17 @@
 
 const Route = use('Route')
 
-Route.on('/').render('login')
+Route.on('/').render('pages.login')
 
-Route.get('/home', 'HomeController.index').middleware('auth')
+Route.group('auth-routes', () => {
+    Route.get('/tasks', 'TaskController.index').middleware('auth')
+    Route.get('/completed-tasks', 'TaskController.completedTasks').middleware('auth')
+    Route.get('/create-task', 'TaskController.create').middleware('auth')
+    Route.post('create-task', 'TaskController.store').middleware('auth')
+}).middleware('auth')
 
-Route.get('/createCard', 'CardController.index').middleware('auth')
-Route.post('createCard', 'CardController.create').middleware('auth')
-
-Route.get('/todo-done', 'CardController.index')
-Route.post('todo-done', 'CardController.done')
+Route.get('/complete-task', 'TaskController.index')
+Route.post('complete-task', 'TaskController.complete')
 
 
 Route.get('/login', 'AuthController.index')
@@ -35,3 +37,5 @@ Route.get('/logout', 'AuthController.logout')
 
 Route.get('/register', 'RegisterController.index')
 Route.post('register', 'RegisterController.register')
+
+

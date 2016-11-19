@@ -3,7 +3,7 @@ const Hash = use('Hash')
 
 class RegisterController {
     * index(request, response) {
-        yield response.sendView('register')
+        yield response.sendView('pages.register')
     }
 
     * register(request, response) {
@@ -18,7 +18,7 @@ class RegisterController {
             success: 'Registration Successful! Now go ahead and login'
         }
 
-        yield response.sendView('register', { registerMessage : registerMessage })
+        yield response.sendView('pages.register', { registerMessage : registerMessage })
     }
 }
 

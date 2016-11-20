@@ -10,25 +10,15 @@
             {%- endfor %}
 
 
-            <form class="form-horizontal" role="form" method="POST" action="/complete-task">
+            <form class="form-horizontal" role="form" method="POST" action="/redo-task">
                 {{ csrfField }}
-                {{ form.hidden('id', task.id ) }}
-                <div class="form-group">
-                    <div class="col-md-6 col-md-offset-4">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fa fa-btn fa-user"></i> Elvégzés
-                        </button>
-                    </div>
-                </div>
-            </form>
 
-            <form class="form-horizontal" role="form" method="POST" action="/edit-task">
-                {{ csrfField }}
                 {{ form.hidden('id', task.id ) }}
+
                 <div class="form-group">
                     <div class="col-md-6 col-md-offset-4">
                         <button type="submit" class="btn btn-primary">
-                            <i class="fa fa-btn fa-user"></i> Edit
+                            <i class="fa fa-btn fa-user"></i> Visszavonás
                         </button>
                     </div>
                 </div>

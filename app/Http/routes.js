@@ -22,12 +22,17 @@ Route.on('/').render('pages.login')
 Route.group('auth-routes', () => {
     Route.get('/tasks', 'TaskController.index').middleware('auth')
     Route.get('/completed-tasks', 'TaskController.completedTasks').middleware('auth')
+    Route.get('/complete-task', 'TaskController.index')
+    Route.post('complete-task', 'TaskController.complete')
+    Route.get('/edit-task', 'TaskController.edit')
+    Route.post('edit-task', 'TaskController.update')
+    Route.get('/redo-task', 'TaskController.index')
+    Route.post('redo-task', 'TaskController.redoTask')
     Route.get('/create-task', 'TaskController.create').middleware('auth')
     Route.post('create-task', 'TaskController.store').middleware('auth')
 }).middleware('auth')
 
-Route.get('/complete-task', 'TaskController.index')
-Route.post('complete-task', 'TaskController.complete')
+
 
 
 Route.get('/login', 'AuthController.index')

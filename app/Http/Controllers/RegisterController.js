@@ -8,7 +8,7 @@ class RegisterController {
 
     * register(request, response) {
         const user = new User()
-        user.username = request.input('name')
+        user.name = request.input('name')
         user.email = request.input('email')
         user.password = yield Hash.make(request.input('password'))
 

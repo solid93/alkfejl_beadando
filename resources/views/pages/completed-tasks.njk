@@ -6,13 +6,12 @@
 
     <div class="container lg-margin-top">
         <div>
-            <h1>Todo lista</h1>
-            <a class="btn btn-default" href="/createCard" role="button">Új tennivaló</a>
+            <h1>Elvégzett teendők</h1>
         </div>
 
-        {% if cards[0] %}
-            {% for card in cards %}
-                {% include 'components.todoCard' %}
+        {% if tasks[0] %}
+            {% for task in tasks %}
+                {% include 'components.task-card-completed' %}
             {% endfor %}
 
         {% else %}

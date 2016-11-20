@@ -1,11 +1,20 @@
 const Task = use('App/Model/Task')
+const User = use('App/Model/User')
+
 
 class TaskController {
 
     * index(request, response) {
-        const tasks = yield Task.query().where('completed', 0).orderBy('id', 'asc').fetch()
+        const tasks = yield Task
+            .query().where('completed', 0)
+            .orderBy('id', 'asc')
+            .with('users')
+            .fetch()
+
+        console.log(tasks.toJSON())
 
         yield response.sendView('pages.tasks', {tasks: tasks.toJSON()})
+
     }
 
     static get inject() {
@@ -18,7 +27,9 @@ class TaskController {
 
 
     * create(request, response) {
-        yield response.sendView('crud.create-task')
+        const users = yield User.pair('id', 'name')
+        console.log(users)
+        yield response.sendView('crud.create-task', {users: users})
 
     }
 
@@ -30,36 +41,43 @@ class TaskController {
 
         yield task.save()
 
+        const users = request.input('names')
+        yield task.users().attach(users)
+
         yield response.route('tasks')
-    }
-
-    * update(request, response) {
-        // const post = yield Post.findBy('id', request.input('id'))
-        // post.body = 'Adding some new content'
-        //
-        // yield post.save() // SQL Update
-
     }
 
     * complete(request, response) {
         const task = yield Task.findBy('id', request.input('id'))
-        task.done = true
+        task.completed = true
+        task.completed_at = Date.now()
 
         yield task.save() // SQL Update
-
         yield response.route('tasks')
 
     }
 
     * completedTasks(request, response) {
-        const task = yield Task.findBy('id', request.input('id'))
-        task.done = true
+        const tasks = yield Task.query()
+            .where('completed', 1)
+            .orderBy('id', 'asc')
+            .with('users')
+            .fetch()
 
-        yield task.save() // SQL Update
-
-        yield response.route('tasks')
+        yield response.sendView('pages.completed-tasks', {tasks: tasks.toJSON()})
 
     }
+
+    * redoTask(request, response) {
+        const task = yield Task.findBy('id', request.input('id'))
+        task.completed = false
+
+        yield task.save()
+        yield response.route('completed-tasks')
+
+    }
+
+
 
 
 }

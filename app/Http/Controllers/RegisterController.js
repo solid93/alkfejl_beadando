@@ -14,11 +14,11 @@ class RegisterController {
 
         yield user.save()
 
-        var registerMessage = {
-            success: 'Registration Successful! Now go ahead and login'
-        }
+        // var registerMessage = {
+        //     success: 'Registration Successful! Now go ahead and login'
+        // }
 
-        yield response.sendView('pages.register', { registerMessage : registerMessage })
+        yield response.redirect('/')
     }
 }
 

@@ -14,25 +14,26 @@
                         {{ csrfField }}
 
                         <div class="form-group">
-                            {{ form.hidden('id') }}
+                            {{ form.hidden('id', task.id) }}
                         </div>
 
                         <div class="form-group">
                             {{ form.label('title', 'Megndevezés:', { class:'col-md-4 control-label'}) }}
                             <div class="col-md-6">
-                                {{ form.text('title', '', { class:'form-control'}) }}
+                                {{ form.text('title', task.title, { class:'form-control'}) }}
                             </div>
                         </div>
 
                         <div class="form-group">
                             {{ form.label('body', 'Leírás:',{ class:'col-md-4 control-label'}) }}
                             <div class="col-md-6">
-                                {{ form.textarea('body', '',{ class:'form-control'}) }}
+                                {{ form.textarea('body', task.body,{ class:'form-control'}) }}
                             </div>
                         </div>
-
+                        {{ everyUser.name }}
                         <div class="form-group">
-                            {{ form.select('names[]',users, null, null,{multiple: true}) }}
+                            {{ form.select('names[]',everyUser, selectedUserIds, null,{multiple: true}) }}
+
                         </div>
 
                         <div class="form-group">
@@ -48,5 +49,6 @@
             </div>
         </div>
     </div>
+
 
 {% endblock %}

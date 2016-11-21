@@ -24,7 +24,7 @@ Route.group('auth-routes', () => {
     Route.get('/completed-tasks', 'TaskController.completedTasks').middleware('auth')
     Route.get('/complete-task', 'TaskController.index')
     Route.post('complete-task', 'TaskController.complete')
-    Route.get('/edit-task', 'TaskController.edit')
+    Route.get('/edit-task/:id', 'TaskController.edit')
     Route.post('edit-task', 'TaskController.update')
     Route.get('/redo-task', 'TaskController.index')
     Route.post('redo-task', 'TaskController.redoTask')

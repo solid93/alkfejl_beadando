@@ -11,7 +11,7 @@ class TaskController {
             .with('users')
             .fetch()
 
-        console.log(tasks.toJSON())
+        // console.log(tasks.toJSON())
 
         yield response.sendView('pages.tasks', {tasks: tasks.toJSON()})
 
@@ -28,7 +28,7 @@ class TaskController {
 
     * create(request, response) {
         const users = yield User.pair('id', 'name')
-        console.log(users)
+        // console.log(users)
         yield response.sendView('crud.create-task', {users: users})
 
     }
@@ -77,7 +77,38 @@ class TaskController {
 
     }
 
+    * edit(request, response) {
+        const task = yield Task.query().with('users').where('id', request.param('id')).fetch()
+        const everyUser = yield User.pair('id', 'name')
 
+        var selectedUsers = task.toJSON()[0].users
+        var selectedUserIds = []
+        selectedUsers.forEach(function (value) {
+            selectedUserIds.push(value.id)
+        });
+        console.log(selectedUserIds)
+        yield response.sendView('crud.edit-task',
+            {
+                task: task.toJSON()[0],
+                everyUser: everyUser,
+                selectedUserIds: selectedUserIds
+            })
+
+    }
+
+    * update(request, response) {
+        const task = new Task()
+        task.title = request.input('title')
+        task.body = request.input('body')
+        task.completed = 0
+
+        yield task.save()
+
+        const users = request.input('names')
+        yield task.users().attach(users)
+
+        yield response.route('tasks')
+    }
 
 
 }

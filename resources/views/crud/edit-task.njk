@@ -30,9 +30,12 @@
                                 {{ form.textarea('body', task.body,{ class:'form-control'}) }}
                             </div>
                         </div>
-                        {{ everyUser.name }}
+
                         <div class="form-group">
-                            {{ form.select('names[]',everyUser, selectedUserIds, null,{multiple: true}) }}
+                            {{ form.label('names[]', 'Beosztottak:',{ class:'col-md-4 control-label'}) }}
+                            <div class="col-md-6">
+                                {{ form.select('names[]',everyUser, selectedUserIds, null,{multiple: true, class:'form-control'}) }}
+                            </div>
 
                         </div>
 

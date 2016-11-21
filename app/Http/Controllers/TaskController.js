@@ -86,26 +86,25 @@ class TaskController {
         selectedUsers.forEach(function (value) {
             selectedUserIds.push(value.id)
         });
-        console.log(selectedUserIds)
+
         yield response.sendView('crud.edit-task',
             {
                 task: task.toJSON()[0],
                 everyUser: everyUser,
-                selectedUserIds: selectedUserIds
+                selectedUserIds: selectedUserIds.map(String)
             })
 
     }
 
     * update(request, response) {
-        const task = new Task()
+        const task = yield Task .findBy('id', request.input('id'))
         task.title = request.input('title')
         task.body = request.input('body')
-        task.completed = 0
 
         yield task.save()
 
         const users = request.input('names')
-        yield task.users().attach(users)
+        yield task.users().sync(users)
 
         yield response.route('tasks')
     }

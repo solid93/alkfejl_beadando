@@ -97,7 +97,7 @@ class TaskController {
     }
 
     * update(request, response) {
-        const task = yield Task .findBy('id', request.input('id'))
+        const task = yield Task.findBy('id', request.input('id'))
         task.title = request.input('title')
         task.body = request.input('body')
 
@@ -107,9 +107,19 @@ class TaskController {
         yield task.users().sync(users)
 
         yield response.route('tasks')
+
     }
 
+    * delete(request, response) {
+        const task = yield Task.find(request.input('id'))
+        const userIds = yield User.ids()
 
+        yield task.users().detach(userIds)
+        yield task.delete()
+
+        yield response.route('tasks')
+
+    }
 }
 
 module.exports = TaskController

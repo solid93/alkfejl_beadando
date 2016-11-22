@@ -26,20 +26,17 @@ Route.group('auth-routes', () => {
     Route.post('complete-task', 'TaskController.complete')
     Route.get('/edit-task/:id', 'TaskController.edit')
     Route.post('edit-task', 'TaskController.update')
+    Route.get('/delete-task', 'TaskController.index')
+    Route.post('delete-task', 'TaskController.delete')
     Route.get('/redo-task', 'TaskController.index')
     Route.post('redo-task', 'TaskController.redoTask')
     Route.get('/create-task', 'TaskController.create').middleware('auth')
     Route.post('create-task', 'TaskController.store').middleware('auth')
 }).middleware('auth')
 
-
-
-
 Route.get('/login', 'AuthController.index')
 Route.post('/login', 'AuthController.login')
-
 Route.get('/logout', 'AuthController.logout')
-
 Route.get('/register', 'RegisterController.index')
 Route.post('register', 'RegisterController.register')
 

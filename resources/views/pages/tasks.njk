@@ -10,16 +10,22 @@
             <a class="btn btn-default" href="/create-task" role="button">Új tennivaló</a>
         </div>
 
-        {% if tasks[0] %}
-            {% for task in tasks %}
-                {% include 'components.task-card' %}
-            {% endfor %}
 
-        {% else %}
-            <div>Jelenleg nincs semmi teendőd!</div>
-
-        {% endif %}
-
+        <div class="sticky-note">
+            <ul>
+                {% if tasks[0] %}
+                    {% for task in tasks %}
+                        <li>
+                            <a href="#">
+                                {% include 'components.task-card' %}
+                            </a>
+                        </li>
+                    {% endfor %}
+                {% else %}
+                    <div>Jelenleg nincs semmi teendőd!</div>
+                {% endif %}
+            </ul>
+        </div>
     </div>
 
 {% endblock %}

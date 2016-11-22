@@ -35,7 +35,6 @@ class TaskController {
 
     * store(request, response) {
         const task = new Task()
-        task.title = request.input('title')
         task.body = request.input('body')
         task.completed = 0
 
@@ -98,7 +97,6 @@ class TaskController {
 
     * update(request, response) {
         const task = yield Task.findBy('id', request.input('id'))
-        task.title = request.input('title')
         task.body = request.input('body')
 
         yield task.save()

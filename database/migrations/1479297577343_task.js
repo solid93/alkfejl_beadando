@@ -9,6 +9,7 @@ class TasksTableSchema extends Schema {
             table.increments()
             table.text('body')
             table.boolean('completed').defaultTo(false)
+            table.string('completed_by')
             table.date('completed_at')
             table.timestamps()
         })

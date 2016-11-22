@@ -50,6 +50,7 @@ class TaskController {
         const task = yield Task.findBy('id', request.input('id'))
         task.completed = true
         task.completed_at = Date.now()
+        task.completed_by = request.currentUser.name
 
         yield task.save() // SQL Update
         yield response.route('tasks')
@@ -70,6 +71,8 @@ class TaskController {
     * redoTask(request, response) {
         const task = yield Task.findBy('id', request.input('id'))
         task.completed = false
+        task.completed_by = ''
+
 
         yield task.save()
         yield response.route('completed-tasks')

@@ -24,21 +24,12 @@
               onclick="window.location.replace('/edit-task/{{ task.id }}');">
         </span>
     </button>
-</div>
-{#<br>#}
 
-    {#<form class="form-horizontal" role="form" method="POST" action="/delete-task">#}
-        {#{{ csrfField }}#}
-        {#{{ form.hidden('id', task.id ) }}#}
-        {#<div class="form-group">#}
-            {#<div class="col-md-6 col-md-offset-4">#}
-                {#<button type="submit" class="btn btn-primary">#}
-                    {#<i class="fa fa-btn fa-user"></i> DELEET THIS#}
-                {#</button>#}
-            {#</div>#}
-        {#</div>#}
-    {#</form>#}
-{#</div>#}
-{#</div>#}
-{#</div>#}
-{#</div>#}
+    <form class="form-horizontal" role="form" method="POST" action="/delete-task">
+        {{ csrfField }}
+        {{ form.hidden('id', task.id ) }}
+        <button type="submit" class="btn btn-xs btn-danger">
+            <span class="glyphicon glyphicon-trash"></span>&nbsp;
+        </button>
+    </form>
+</div>

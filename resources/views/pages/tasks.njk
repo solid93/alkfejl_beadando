@@ -15,11 +15,7 @@
             <ul>
                 {% if tasks[0] %}
                     {% for task in tasks %}
-                        <li>
-                            <a href="#">
-                                {% include 'components.task-card' %}
-                            </a>
-                        </li>
+                        {% include 'components.task-card' %}
                     {% endfor %}
                 {% else %}
                     <div>Jelenleg nincs semmi teendőd!</div>

@@ -33,7 +33,7 @@ class TaskController {
 
     }
 
-    * store(request, response) {
+    * store (request, response) {
         const task = new Task()
         task.body = request.input('body')
         task.completed = 0
@@ -43,7 +43,7 @@ class TaskController {
         const users = request.input('names')
         yield task.users().attach(users)
 
-        yield response.route('tasks')
+        response.route('tasks')
     }
 
     * complete(request, response) {
@@ -53,7 +53,7 @@ class TaskController {
         task.completed_by = request.currentUser.name
 
         yield task.save() // SQL Update
-        yield response.route('tasks')
+        response.route('tasks')
 
     }
 
@@ -75,7 +75,7 @@ class TaskController {
 
 
         yield task.save()
-        yield response.route('completed-tasks')
+        response.route('completed-tasks')
 
     }
 
@@ -107,7 +107,7 @@ class TaskController {
         const users = request.input('names')
         yield task.users().sync(users)
 
-        yield response.route('tasks')
+        response.route('tasks')
 
     }
 
@@ -118,7 +118,7 @@ class TaskController {
         yield task.users().detach(userIds)
         yield task.delete()
 
-        yield response.route('tasks')
+        response.route('tasks')
 
     }
 }

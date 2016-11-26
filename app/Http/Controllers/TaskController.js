@@ -9,9 +9,12 @@ class TaskController {
             .query().where('completed', 0)
             .orderBy('id', 'asc')
             .with('users')
+            .scope('users', (builder) => {
+                builder.where('users.name', 'Luca')
+            })
             .fetch()
 
-        // console.log(tasks.toJSON())
+        console.log(tasks.toJSON())
 
         yield response.sendView('pages.tasks', {tasks: tasks.toJSON()})
 

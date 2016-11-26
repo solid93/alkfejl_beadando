@@ -9,6 +9,11 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Új teendő</div>
                     <div class="panel-body">
+                        <div class="bg-danger text-white text-xs-center m-1 p-1">
+                            {% for error in old('errors') %}
+                                <li> {{ error.message }} </li>
+                            {% endfor %}
+                        </div>
                         {{ form.open({action: 'TaskController.store', method: 'POST', class: 'form-horizontal'}) }}
 
                         {{ csrfField }}

@@ -1,11 +1,16 @@
-.lg-margin-top {
-    margin-top: 50px;
+body {
+    margin-top: 100px;
 }
 
 .full-width {
     width: 100%;
 }
-
+.lg-task-top {
+    margin-top: 50px!important;
+}
+.form-group button {
+    width:100%;
+}
 .task-card {
     width: 100%;
     background: lightgrey;
@@ -35,18 +40,18 @@
     /*background:#666;*/
     /*color:#fff;*/
 /*}*/
-.sticky-note:not(#myModal) h2,p{
+.sticky-note h2,p{
     font-size:100%;
     font-weight:normal;
 }
-.sticky-note:not(#myModal) ul,li{
+.sticky-note ul,li{
     list-style:none;
 }
-.sticky-note:not(#myModal) ul{
+.sticky-note ul{
     overflow:hidden;
     padding:3em;
 }
-.sticky-note:not(#myModal) ul li{
+.sticky-note ul li{
     text-decoration:none;
     color:#000;
     background:#ffc;
@@ -55,23 +60,23 @@
     width:10em;
     padding:1em;
 }
-.sticky-note:not(#myModal) ul li{
+.sticky-note ul li{
     margin:1em;
     float:left;
 }
 
-.sticky-note:not(#myModal) ul li h2{
+.sticky-note ul li h2{
     font-size:140%;
     font-weight:bold;
     padding-bottom:10px;
     margin: auto;
 }
-.sticky-note:not(#myModal) ul li p{
+.sticky-note ul li p{
     font-family:"Reenie Beanie",arial,sans-serif;
     font-size:180%;
 }
 
-.sticky-note:not(#myModal) ul li{
+.sticky-note ul li{
     text-decoration:none;
     color:#000;
     background:#ffc;
@@ -87,27 +92,27 @@
     box-shadow: 5px 5px 7px rgba(33,33,33,.7);
 }
 
-/*.sticky-note:not(#myModal) ul li {*/
-    /*-webkit-transform:rotate(-6deg);*/
-    /*-o-transform:rotate(-6deg);*/
-    /*-moz-transform:rotate(-6deg);*/
-/*}*/
+.sticky-note ul li {
+    -webkit-transform:rotate(-6deg);
+    -o-transform:rotate(-6deg);
+    -moz-transform:rotate(-6deg);
+}
 
-.sticky-note:not(#myModal) ul li:nth-child(even){
+.sticky-note ul li:nth-child(even){
     -o-transform:rotate(4deg);
     -webkit-transform:rotate(4deg);
     -moz-transform:rotate(4deg);
     position:relative;
     top:5px;
 }
-.sticky-note:not(#myModal) ul li:nth-child(3n){
+.sticky-note ul li:nth-child(3n){
     -o-transform:rotate(-3deg);
     -webkit-transform:rotate(-3deg);
     -moz-transform:rotate(-3deg);
     position:relative;
     top:-5px;
 }
-.sticky-note:not(#myModal) ul li:nth-child(5n){
+.sticky-note ul li:nth-child(5n){
     -o-transform:rotate(5deg);
     -webkit-transform:rotate(5deg);
     -moz-transform:rotate(5deg);
@@ -126,7 +131,7 @@
     z-index:5;
 }
 
-.sticky-note:not(#myModal) ul li{
+.sticky-note ul li{
     text-decoration:none;
     color:#000;
     background:#ffc;

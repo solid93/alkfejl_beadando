@@ -1,6 +1,6 @@
 const Task = use('App/Model/Task')
 const User = use('App/Model/User')
-
+const Validator = use('Validator')
 
 class TaskController {
 
@@ -37,6 +37,21 @@ class TaskController {
         const task = new Task()
         task.body = request.input('body')
         task.completed = 0
+
+        const taskData = request.all()
+        const messages = {
+            max: 'Túllépted a megengedett karakterszámot (50)!',
+            required: 'Kérlek ne hagyj üresen mezőt!'
+        }
+        const validation = yield Validator.validate(taskData, Task.rules, messages)
+
+        if (validation.fails()) {
+            yield request.withOnly('body')
+                .andWith({ errors: validation.messages() }).flash()
+            response.redirect('back')
+
+            return
+        }
 
         yield task.save()
 
@@ -101,6 +116,21 @@ class TaskController {
     * update(request, response) {
         const task = yield Task.findBy('id', request.input('id'))
         task.body = request.input('body')
+
+        const taskData = request.all()
+        const messages = {
+            max: 'Túllépted a megengedett karakterszámot (50)!',
+            required: 'Kérlek ne hagyj üresen mezőt!'
+        }
+        const validation = yield Validator.validate(taskData, Task.rules, messages)
+
+        if (validation.fails()) {
+            yield request.withOnly('body')
+                .andWith({ errors: validation.messages() }).flash()
+            response.redirect('back')
+
+            return
+        }
 
         yield task.save()
 

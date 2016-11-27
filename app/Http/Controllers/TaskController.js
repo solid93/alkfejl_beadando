@@ -69,8 +69,6 @@ class TaskController {
         task.completed = true
         task.completed_at = Date.now()
         task.completed_by = request.currentUser.name
-        console.log("ASDHIASUGDZGOASOIDP")
-        console.log(task)
         yield task.save() // SQL Update
         response.route('tasks')
 

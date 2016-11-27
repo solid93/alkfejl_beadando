@@ -9,9 +9,9 @@ class TaskController {
             .query().where('completed', 0)
             .orderBy('id', 'asc')
             .with('users')
-            .scope('users', (builder) => {
-                builder.where('users.name', 'Luca')
-            })
+            // .scope('users', (builder) => {
+            //     builder.where('users.name', 'Luca')
+            // })
             .fetch()
 
         console.log(tasks.toJSON())
@@ -43,8 +43,8 @@ class TaskController {
 
         const taskData = request.all()
         const messages = {
-            max: 'Túllépted a megengedett karakterszámot (50)!',
-            required: 'Kérlek ne hagyj üresen mezőt!'
+            'body.max': 'Túllépted a megengedett karakterszámot (50)!',
+            'names.max': 'Maximum két emberhez csatolhatsz teendőt!'
         }
         const validation = yield Validator.validate(taskData, Task.rules, messages)
 
@@ -69,7 +69,8 @@ class TaskController {
         task.completed = true
         task.completed_at = Date.now()
         task.completed_by = request.currentUser.name
-
+        console.log("ASDHIASUGDZGOASOIDP")
+        console.log(task)
         yield task.save() // SQL Update
         response.route('tasks')
 
@@ -122,8 +123,8 @@ class TaskController {
 
         const taskData = request.all()
         const messages = {
-            max: 'Túllépted a megengedett karakterszámot (50)!',
-            required: 'Kérlek ne hagyj üresen mezőt!'
+            'body.max': 'Túllépted a megengedett karakterszámot (50)!',
+            'names.max': 'Maximum két emberhez csatolhatsz teendőt!'
         }
         const validation = yield Validator.validate(taskData, Task.rules, messages)
 

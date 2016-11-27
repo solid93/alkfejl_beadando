@@ -6,7 +6,7 @@ class Task extends Lucid {
     static get rules () {
         return {
             body: 'required|max:50',
-            names:'required'
+            names:'array|max:3'
         }
     }
 

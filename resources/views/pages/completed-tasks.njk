@@ -13,7 +13,7 @@
             <ul>
                 {% if tasks[0] %}
                     {% for task in tasks %}
-                        {% include 'components.task-card' %}
+                        {% include 'components.task-card-completed' %}
                     {% endfor %}
                 {% else %}
                     <div>Jelenleg nincs semmi teendőd!</div>

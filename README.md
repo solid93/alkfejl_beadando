@@ -25,3 +25,39 @@ feladatokat, hogy később távolról bármikor elérhessék őket.
 __Használati esetek:__
 
 ![](docs/images/uml.png)
+
+# 2. Tervezés
+
+### Oldaltérkép
+
+__publikus:__
+
+- bejelentkezés
+- regisztráció
+
+__bejelentkezett:__
+
+- teendők
+  - új teendő
+  - teendők listázása
+    - teendő szerkesztése
+    - teendő törlése
+
+### Design-tervek végső megvalósítása
+Belépés
+![Belépés](docs/images/login.png)
+
+Regisztráció
+![Belépés](docs/images/registration.png)
+
+Főoldal
+![Főoldal](docs/images/main.png)
+
+Főoldal-animáció
+![Főoldal-animáció](docs/images/main2.png)
+
+Új teendő
+![Új-teendő](docs/images/ujteendo.png)
+
+Elvégzett teendők
+![Elvégzett-teendők](docs/images/elvegzett.png)

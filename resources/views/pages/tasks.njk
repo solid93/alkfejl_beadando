@@ -25,3 +25,16 @@
     </div>
 
 {% endblock %}
+
+{% block footer %}
+    <script type="text/javascript">
+        var deleteButtons = document.getElementsByClassName('delete_button_without_js');
+        for (var i = 0; i < deleteButtons.length; i++) {
+            deleteButtons[i].innerHTML =
+                    '<button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#myModal">' +
+                    '<span class="glyphicon glyphicon-trash"></span>' +
+                    '</button>';
+        }
+    </script>
+
+{% endblock %}

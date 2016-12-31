@@ -13,10 +13,17 @@
         <p class="task-body">{{ task.body }}</p>
 
         <div class="task-actions">
+            <div class="button_redo_without_js">
+                <form class="form-horizontal" role="form" method="POST" action="/redo-task">
+                    {{ csrfField }}
+                    {{ form.hidden('id', task.id ) }}
+                    <button type="submit" class="btn btn-md btn-default">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
 
-            <button type="button" class="btn btn-xs btn-success" data-toggle="modal" data-target="#myModalRedo">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-            </button>
+                    </button>
+                </form>
+
+            </div>
 
             <button type="submit" class="btn btn-xs btn-default">
             <span class="glyphicon glyphicon-pencil"

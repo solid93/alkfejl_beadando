@@ -23,3 +23,17 @@
     </div>
 
 {% endblock %}
+
+
+{% block footer %}
+    <script type="text/javascript">
+        var redoButtons = document.getElementsByClassName('button_redo_without_js');
+        for (var i = 0; i < redoButtons.length; i++) {
+            redoButtons[i].innerHTML =
+                    '<button type="button" class="btn btn-xs btn-success" data-toggle="modal" data-target="#myModalRedo">' +
+                    '<span class="glyphicon glyphicon-chevron-left"></span>' +
+                    '</button>';
+        }
+    </script>
+{% endblock %}
+

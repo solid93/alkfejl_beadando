@@ -27,10 +27,21 @@
         </span>
             </button>
 
+            <div class="delete_button_without_js">
 
-            <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#myModal">
-                <span class="glyphicon glyphicon-trash"></span>
-            </button>
+                <form class="form-horizontal" role="form" method="POST" action="/delete-task">
+                    {{ csrfField }}
+                    {{ form.hidden('id', task.id ) }}
+                    <button type="submit" class="btn btn-md btn-danger">
+                        <span>Törlés</span>&nbsp;
+                    </button>
+                </form>
+
+                {#<button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#myModal">#}
+                    {#<span class="glyphicon glyphicon-trash"></span>#}
+                {#</button>#}
+
+            </div>
 
 
         </div>

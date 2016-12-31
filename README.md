@@ -48,7 +48,7 @@ Belépés
 ![Belépés](docs/images/login.png)
 
 Regisztráció
-![Belépés](docs/images/registration.png)
+![Belépés](docs/images/reg.png)
 
 Főoldal
 ![Főoldal](docs/images/main.png)
@@ -61,3 +61,7 @@ Főoldal-animáció
 
 Elvégzett teendők
 ![Elvégzett-teendők](docs/images/elvegzett.png)
+
+### Adatbázis kapcsolatok
+
+![](docs/images/database.png)
